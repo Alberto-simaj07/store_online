@@ -27,6 +27,7 @@ const {
   SESSION_NAME = 'sid',
   SESSION_COOKIE_SECURE = 'false'
 } = process.env;
+const isSecureCookie = SESSION_COOKIE_SECURE === 'true';
 
 const app = express();
 
@@ -45,7 +46,7 @@ const sessionStore = new PgSessionStore({
   pruneSessionInterval: 60 * 15
 });
 
-if (SESSION_COOKIE_SECURE === 'true') {
+if (isSecureCookie) {
   app.set('trust proxy', 1);
 }
 
@@ -57,7 +58,8 @@ app.use(session({
   store: sessionStore,
   cookie: {
     httpOnly: true,
-    secure: SESSION_COOKIE_SECURE === 'true',
+    secure: isSecureCookie,
+    sameSite: isSecureCookie ? 'none' : 'lax',
     maxAge: 1000 * 60 * 60 * 8
   }
 }));
