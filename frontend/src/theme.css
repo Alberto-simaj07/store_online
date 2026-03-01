@@ -1,0 +1,57 @@
+:root{
+  --brand:#3b82f6;        /* azul primario */
+  --brand-2:#6366f1;      /* acento */
+  --bg:#f6f8fb;
+  --card:#ffffff;
+  --text:#0f172a;
+  --muted:#6b7280;
+  --ring: 0 10px 25px rgba(59,130,246,.15);
+  --ring-2: 0 10px 25px rgba(99,102,241,.15);
+  --radius: 14px;
+}
+
+html,body{ background:var(--bg); }
+
+.navbar{
+  backdrop-filter: saturate(140%) blur(4px);
+}
+
+.btn-gradient{
+  background: linear-gradient(90deg,var(--brand),var(--brand-2));
+  border: none;
+  color: #fff !important;
+  box-shadow: var(--ring);
+}
+.btn-gradient:hover{ opacity:.95; }
+
+.card.sleek{
+  border: 0;
+  border-radius: var(--radius);
+  box-shadow: 0 1px 2px rgba(0,0,0,.04), 0 10px 30px rgba(15,23,42,.06);
+  transition: transform .15s ease, box-shadow .2s ease;
+}
+.card.sleek:hover{
+  transform: translateY(-3px);
+  box-shadow: 0 1px 2px rgba(0,0,0,.04), 0 18px 40px rgba(15,23,42,.10);
+}
+
+.product-img{
+  aspect-ratio: 16/10;
+  object-fit: cover;
+  border-top-left-radius: var(--radius);
+  border-top-right-radius: var(--radius);
+  background: linear-gradient(135deg,#eef2ff,#f0f9ff);
+}
+
+.badge-price{
+  background: #ecfeff;
+  color: #0369a1;
+  border: 1px solid #cffafe;
+}
+
+.input-ghost{
+  border-radius: 999px;
+  border: 1px solid #e5e7eb;
+  padding: .8rem 1.2rem;
+  background: #fff;
+}
